@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!--index.html-->
+{% if object_list %}
+<h3>Todas mis listas</h3>
+{% endif %}
+<ul>
+    {% for todolist in object_list %}
+    <li>
+        <div role="button" onclick="location.href='{% url "list" todolist.id %}'">
+            {{ todolist.titulo }}
+        </div>
+    </li>
+    {% empty %}
+    <h4>No existen listas creadas!</h4>
+    {% endfor %}
+</ul>
+<p>
+    <input value="Agregar nueva lista" type="button" onclick="location.href='{% url "list_add" %}'">
+</p>
+{% endblock %}

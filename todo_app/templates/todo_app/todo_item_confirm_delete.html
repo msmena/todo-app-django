@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Eliminar registro de la lista</h3>
+<p>Esta seguro de eliminar el registro 
+    <em>{{object.titulo}}</em> de la lista
+    <em>{{todo_lista.titulo}}</em>?</p>
+<form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Eliminar">
+</form>
+<input value="Cancelar" type="button" onclick="location.href='{% url "list" todo_lista.id %}'">
+{% endblock  %}

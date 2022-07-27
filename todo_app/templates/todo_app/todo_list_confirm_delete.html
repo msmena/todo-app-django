@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Eliminar lista</h3>
+<p>
+    Esta seguro de que desea eliminar la lista <em>{{ object.titulo }}</em>?
+</p>
+<form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Eliminar">
+</form>
+<input value="Cancelar" type="button" onclick="location.href='{% url "index" %}'">
+
+{% endblock %}

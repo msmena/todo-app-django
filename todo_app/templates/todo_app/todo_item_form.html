@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3>{{ titulo }}</h3>
+<div>
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <input type="submit" value="Enviar">
+            {% if object %}
+            <input value="Eliminar" type="button" onclick="location.href='{% url "item_delete" todo_lista.id object.id %}'">
+            {% endif %}
+            <input type="button" value="Cancelar" onclick="location.href='{% url "list" todo_lista.id %}'">
+        </form>
+    </div>
+</div>
+
+{% endblock %}
